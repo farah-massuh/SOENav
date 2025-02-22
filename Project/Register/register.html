@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,239 @@
     <link href="Pictures/Logo/ico.png" rel="icon" type="image/png">
     <link rel="stylesheet" href="register.css">
 </head>
+
 <body>
+    <div class="header">
+        <ul class="header-list">
+            <li class="home"><a href="">Home</a></li>
+            <li class="sourcecode"><a href="">Source-Code</a></li>
+            <li class="vector"><a href="">rMath</a></li>
+            <li class="ode"><a href="">Login</a></li>
+        </ul>
+        <img src="../Pictures/logo/rMath.jpg" alt="logo">
+    </div>
+    <div class="signup-container">
+        <h1>Register your NET-ID</h1>
+        <form method="POST" id="signForm">
+            <label for="username">NETID*</label>
+            <input type="text" id="username" name="username" placeholder="NETID" required>
+
+            <label for="email">Email*</label>
+            <input type="email" id="email" name="email" placeholder="For resetting password">
+
+            <label for="password">Password* <span id="password-info">&#9432</span> </label>
+            <input type="password" id="password" name="password" placeholder="Different from RUID" required>
+
+            <label for="confirm-password">Confirm Password*</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder='Retype password' required>
+
+            <label for="courses-taken">Courses Taken(Sorted Numerically)</label>
+            <select id="courses-taken" name="courses-taken" multiple>
+                <option value=""></option>
+                <option> 14:125:201 : INTRO BIOMEDICAL ENG </option>
+                <option> 14:125:255 : BME SYST PHYSIOLOGY </option>
+                <option> 14:125:291 : DIRECTED RESEARCH I </option>
+                <option> 14:125:303 : BIOMED TRANSP PHENOM </option>
+                <option> 14:125:304 : BIOMATERIAL </option>
+                <option> 14:125:305 : NUMER MODL & BIOMD SYS </option>
+                <option> 14:125:306 : BIOMED KINET & THERM </option>
+                <option> 14:125:308 : INTRO TO BIOMECHANIC </option>
+                <option> 14:125:309 : BME DEVICES & SYSTEM </option>
+                <option> 14:125:310 : BME DEVICE & SYS LAB </option>
+                <option> 14:125:401 : SENIOR DESIGN I LEC </option>
+                <option> 14:125:403 : CARDIOVASC ENG </option>
+                <option> 14:125:417 : MUSCULOSKELETAL MECH </option>
+                <option> 14:125:421 : SR DESIGN I PROJECTS </option>
+                <option> 14:125:424 : BIOMED INSTRUMNT LAB </option>
+                <option> 14:125:433 : FUND OF TISSUE ENGG </option>
+                <option> 14:125:445 : PRIN DRUG DELIVERY </option>
+                <option> 14:125:465 : BME MICROFLUIDICS </option>
+                <option> 14:125:489 : BME HA RESEARCH I </option>
+                <option> 14:125:491 : INDEPENT STUDY BME </option>
+                <option> 14:125:493 : BME HA ADV RES I </option>
+                <option> 14:125:495 : INTERNSHIP IN BME </option>
+                <option> 14:125:497 : CO-OP BIOMED ENGRG </option>
+                <option> 14:125:499 : TOPICS IN BME </option>
+                <option> 14:155:201 : CHEME MAT ENERGY BAL </option>
+                <option> 14:155:291 : UNDERGRAD RSRCH SO </option>
+                <option> 14:155:298 : PROF SKILLS DEV </option>
+                <option> 14:155:303 : TRANS PHEN CHEM E I </option>
+                <option> 14:155:307 : CHEME COMP METHOD </option>
+                <option> 14:155:309 : CHEM ENG THERMO II </option>
+                <option> 14:155:391 : UNDERGRAD RSRCH JR </option>
+                <option> 14:155:411 : BIOCHEMICAL ENGG </option>
+                <option> 14:155:415 : PROC ENGG LAB I </option>
+                <option> 14:155:422 : PROC SIM CTRL </option>
+                <option> 14:155:491 : UNDERGRAD RSRCH SR </option>
+                <option> 14:155:495 : INTERNSHIP IN CBE </option>
+                <option> 14:155:497 : CO-OP IN CBE </option>
+                <option> 14:180:215 : ENGINEERING GRAPHICS </option>
+                <option> 14:180:243 : MECHANICS OF SOLIDS </option>
+                <option> 14:180:305 : CONSTRUCTION ENGG </option>
+                <option> 14:180:318 : ELEMTS OF STRUCTURES </option>
+                <option> 14:180:331 : ELEMTS ENVIRONM ENGG </option>
+                <option> 14:180:387 : FLUID MECHANICS </option>
+                <option> 14:180:389 : FLUID MECHANICS LAB </option>
+                <option> 14:180:406 : CONSTRUC ENG MANAGMT </option>
+                <option> 14:180:411 : REINFORCED CONCRETE </option>
+                <option> 14:180:413 : THEORY INDETER STRUC </option>
+                <option> 14:180:421 : REINFOR CONCRETE LAB </option>
+                <option> 14:180:429 : WATER & WASTEWTR ENGG </option>
+                <option> 14:180:430 : INTRO TRANS PLANNING </option>
+                <option> 14:180:473 : FOUNDATION ENGG </option>
+                <option> 14:180:491 : SPEC PROB CIV ENGG </option>
+                <option> 14:180:493 : SPEC PROB ENVIR ENGG </option>
+                <option> 14:180:497 : CO-OP CIVIL ENV ENGG </option>
+                <option> 14:332:221 : PRIN ELEC ENGG I </option>
+                <option> 14:332:222 : PRIN ELEC ENGG II </option>
+                <option> 14:332:223 : PRIN ELECT ENG I LAB </option>
+                <option> 14:332:224 : PRIN ELEC ENG II LAB </option>
+                <option> 14:332:231 : DIGITAL LOGIC DESIGN </option>
+                <option> 14:332:233 : DIGITL LOGIC DES LAB </option>
+                <option> 14:332:312 : DISCRETE MATH ECE </option>
+                <option> 14:332:331 : COMP ARCH & ASM LANG </option>
+                <option> 14:332:333 : COMPUTER ARCHIT LAB </option>
+                <option> 14:332:345 : LINEAR SYS & SIGNALS </option>
+                <option> 14:332:351 : PROGRM METHODOLOGYII </option>
+                <option> 14:332:361 : ELECTRONICS DEVICES </option>
+                <option> 14:332:363 : ELECTRON DEVICES LAB </option>
+                <option> 14:332:366 : DIGITAL ELECTRONICS </option>
+                <option> 14:332:368 : DIGITAL ELECTRON LAB </option>
+                <option> 14:332:402 : SUSTAINABLE ENERGY </option>
+                <option> 14:332:417 : CONTROL SYSTM DESIGN </option>
+                <option> 14:332:421 : WIRELESS COMMUN SYS </option>
+                <option> 14:332:424 : INTRO-INFO & NETW SEC </option>
+                <option> 14:332:435 : TOPICS IN ECE </option>
+                <option> 14:332:437 : DIGITAL SYST DESIGN </option>
+                <option> 14:332:443 : MACHINE LEARNING </option>
+                <option> 14:332:445 : TOPICS IN ECE </option>
+                <option> 14:332:446 : TOPICS IN ECE </option>
+                <option> 14:332:448 : CAPSTONE DESIGN ECE </option>
+                <option> 14:332:449 : INTRO CAPSTONE ECE </option>
+                <option> 14:332:451 : PARALLEL & DIST PROG </option>
+                <option> 14:332:452 : SOFTWARE ENGINEERING </option>
+                <option> 14:332:460 : POWER ELECTRONICS </option>
+                <option> 14:332:463 : ANALOG ELECTRONICS </option>
+                <option> 14:332:465 : PHYSICAL ELECTRONICS </option>
+                <option> 14:332:472 : ROBOTICS & COMP VISION </option>
+                <option> 14:332:479 : VLSI DESIGN </option>
+                <option> 14:332:481 : ELECTROMAG WAVES </option>
+                <option> 14:332:491 : SPCL PROB/IND STUDY </option>
+                <option> 14:332:493 : TOPICS IN ECE </option>
+                <option> 14:332:494 : TOPICS IN ECE </option>
+                <option> 14:332:495 : INTERNSHIP IN ECE </option>
+                <option> 14:332:497 : CO-OP INTERNSHIP ECE </option>
+                <option> 14:440:101 : ID3EA I </option>
+                <option> 14:440:107 : METH INQUIRY ENGRS </option>
+                <option> 14:440:124 : RU-FIT SOE </option>
+                <option> 14:440:127 : INT COMPUTER FOR ENG </option>
+                <option> 14:440:221 : ENG MECH-STATICS </option>
+                <option> 14:440:222 : ENG MECH-DYNAMICS </option>
+                <option> 14:440:291 : HONORS ENG MECH-STAT </option>
+                <option> 14:440:292 : HONORS ENG MECH-DYNA </option>
+                <option> 14:440:298 : SKILLS TO SUCCEED </option>
+                <option> 14:440:301 : INTRO PACKAGING ENG </option>
+                <option> 14:440:302 : CAD FOR PACKG'G ENGR </option>
+                <option> 14:440:371 : PACKAGING EVAL MTDS </option>
+                <option> 14:440:373 : PKGG MANUFACTURING </option>
+                <option> 14:440:378 : SUSTAINABLE PACKAG'G </option>
+                <option> 14:440:419 : INNOVATION & DESIGN </option>
+                <option> 14:440:470 : PACKAGING LAB I </option>
+                <option> 14:440:489 : SPEC PROB PACKAGING </option>
+                <option> 14:440:497 : ENG CO-OP INTERNSHIP </option>
+                <option> 14:440:499 : PKG ENGG CO-OP/INTRN </option>
+                <option> 14:540:201 : WORK DESIGN & ERGO </option>
+                <option> 14:540:202 : WORK DESIGN LAB </option>
+                <option> 14:540:213 : INDUSTRIAL ENGG LAB </option>
+                <option> 14:540:320 : ENGR STATISTICS </option>
+                <option> 14:540:338 : PROB MODELS OP RES </option>
+                <option> 14:540:343 : ENGINEERNG ECONOMICS </option>
+                <option> 14:540:382 : AUTOMATION </option>
+                <option> 14:540:383 : AUTOMATION LAB </option>
+                <option> 14:540:400 : DES ENGR SYS II </option>
+                <option> 14:540:433 : QUALITY ENGINEERING </option>
+                <option> 14:540:434 : QUALITY ENGR LAB </option>
+                <option> 14:540:453 : PRODUCTION CONTROL </option>
+                <option> 14:540:487 : ENERGY SYS MODEL OPT </option>
+                <option> 14:540:491 : SPECIAL PROBLEMS </option>
+                <option> 14:540:492 : SPECIAL PROBLEMS </option>
+                <option> 14:540:496 : INTERNSHIP/CO-OP ISE </option>
+                <option> 14:540:497 : INTERNSHIP/CO-OP ISE </option>
+                <option> 14:635:203 : INTRO MATLS SCI ENGG </option>
+                <option> 14:635:205 : CRYSTAL CHEM& STRUCT </option>
+                <option> 14:635:305 : MATLS MICROPROC </option>
+                <option> 14:635:307 : KINETICS OF MAT PROC </option>
+                <option> 14:635:309 : CHARACT OF MATERIALS </option>
+                <option> 14:635:312 : GLASS ENGINEERING </option>
+                <option> 14:635:316 : EOM PROP OF MATLS </option>
+                <option> 14:635:353 : LAB II </option>
+                <option> 14:635:362 : PHYSICAL METALLURGY </option>
+                <option> 14:635:402 : SENIOR MSE LAB </option>
+                <option> 14:635:403 : MSE SEMINAR </option>
+                <option> 14:635:407 : MECH PROPS OF MATLS </option>
+                <option> 14:635:412 : MSE ENG'G DESIGN II </option>
+                <option> 14:635:491 : SPECIAL PROBLEMS </option>
+                <option> 14:635:497 : CO-OP CERAM & MAT ENGG </option>
+                <option> 14:650:210 : INTRO AERO ENG </option>
+                <option> 14:650:289 : PROF DEVELOPMENT MAE </option>
+                <option> 14:650:291 : MECH MATERIALS </option>
+                <option> 14:650:298 : UNDERGRD RES SOPHOMO </option>
+                <option> 14:650:312 : FLUID MECHANICS </option>
+                <option> 14:650:342 : DESIGN MECH COMPNTS </option>
+                <option> 14:650:350 : MECH ENG MES W/LAB </option>
+                <option> 14:650:351 : THERMODYNAMICS </option>
+                <option> 14:650:361 : INTRO MECHATRONICS </option>
+                <option> 14:650:388 : CAD IN MECH ENGG </option>
+                <option> 14:650:398 : UNDERGRD RES JUNIORS </option>
+                <option> 14:650:401 : DYN SYS & CNTL </option>
+                <option> 14:650:431 : MECH ENGG LAB I </option>
+                <option> 14:650:439 : MULTIPHYSICS SIMU </option>
+                <option> 14:650:443 : VIBRATIONS </option>
+                <option> 14:650:455 : DESIGN OF MECHANISMS </option>
+                <option> 14:650:457 : SPACECRAFT/MIS DE </option>
+                <option> 14:650:462 : POWER PLANTS </option>
+                <option> 14:650:465 : ORBITAL MECHANICS </option>
+                <option> 14:650:467 : DESIGN & MFG. I </option>
+                <option> 14:650:474 : ALT ENERGY I </option>
+                <option> 14:650:481 : HEAT TRANSFER </option>
+                <option> 14:650:487 : AE DESIGN 1 </option>
+                <option> 14:650:495 : INTERNSHIP IN MAE </option>
+                <option> 14:650:497 : CO-OP INTERNSHIP MAE </option>
+                <option> 14:650:498 : UNDERGRD RES SENIORS </option>
+            </select>
+
+            <label for="matric">Matriculation Date*</label>
+            <select id="matric" name="matric" required>
+                <option value="">2021 </option>
+                <option value="">2022 </option>
+                <option value="">2023 </option>
+                <option value="">2024 </option>
+                <option value="">2025 </option>
+                <option value="">2026 </option>
+            </select>
+
+            <label for="gradDate">Expected graduation year*</label>
+            <select id="gradDate" name="gradDate" required>
+                <option value="">2026 </option>
+                <option value="">2027 </option>
+                <option value="">2028 </option>
+            </select>
+
+            <label for="major">Current major*</label>
+            <select id="major" name="major" required>
+                <option value="">Computer Engineering </option>
+            </select>
+
+            <div class="terms-container">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms and Policies</a></label>
+            </div>
+            <span id="errMsg"></span>
+            <button type="submit" id="signBtn">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Log in</a></p>
+    </div>
     <script src="register.js"></script>
 </body>
+
 </html>
