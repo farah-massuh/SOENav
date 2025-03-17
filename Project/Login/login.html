@@ -77,6 +77,12 @@
                             <br><br></div>
     
                             <script>
+                                class userFields {
+                                  constructor(username, password) {
+                                    this.username = username;
+                                    this.password = password;
+                                }
+
                                 function disableEmptyInputFormSubmission() {
                                     var form = document.getElementById('fm1');
                                     var usernameField = form.querySelector('input[name="username"]');
@@ -105,10 +111,13 @@
                                             submitButton.disabled = false;
                                         }
                                     }, 100);
-                                }
+                                }}
+                                const userFieldsLogin = new userFields();
+                                userFieldsLogin.username = usernameField.value;
+                                userFieldsLogin.password=passwordField.value;
                             
                                 document.addEventListener('DOMContentLoaded', function () {
-                                    disableEmptyInputFormSubmission();
+                                    userFieldsLogin.disableEmptyInputFormSubmission();
                             
                                     var form = document.getElementById('fm1');
                                     if (form) {
