@@ -167,6 +167,21 @@
     .toggle-btn:hover {
       background-color: #a30028;
     }
+    /*David's Course List*/
+     table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 20px; 
+    }
+    th, td { 
+      border: 1px solid #ddd; 
+      padding: 8px; 
+      text-align: left; 
+    }
+    th { 
+      background-color: #cc0033; 
+      color: #fff; 
+    }
   </style>
 </head>
 <body>
@@ -233,6 +248,32 @@
     <div class="dn-section">
       <h2>My Planned Courses</h2>
       <p>You have <span id="js-pple">0 </span>courses in your course plan.</p>
+    </div>
+
+    <!--David's CourseList-->
+    <div class="dn-section course-list">
+      <h2>My Course List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Course</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th>Special Codes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spring 2025</td>
+            <td>01:198:205</td>
+            <td>4</td>
+            <td>Current</td>
+            <td>M</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
     </div>
 
     <!-- QUESTIONS / Contact Info -->
