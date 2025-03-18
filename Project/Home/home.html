@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SOENav</title>
+  <!-- Font Awesome Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" 
+  integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="home.css"><!--copy  the  style code to the home.css-->
+  <style>
+    /* Basic resets */
+   
+  </style>
+</head>
+<body>
+  <!-- Toggle button -->
+  <button class="toggle-btn" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="#" class="sidebar-brand">
+      <i class="fas fa-graduation-cap"></i>
+      <span>Degree Navigator</span>
+    </a>
+    <a href="#" class="nav-link"><i class="fas fa-home"></i> <span>Dashboard</span></a>
+    <a href="#notes" class="nav-link"><i class="fas fa-file-alt"></i> <span>My Notes</span></a>
+    <a href="#details" class="nav-link"><i class="fas fa-user"></i> <span>My Details</span></a>
+    <a href="CoursePlanner/courseplanner.html" class="nav-link"><i class="fas fa-list"></i> <span>Course Planner</span></a>
+    <a href="#plcourses" class="nav-link"><i class="fas fa-book"></i> <span>My Planned Courses</span></a>
+    <a href="#courseList" class="nav-link"><i class="fas fa-clipboard-list"></i> <span>My Course List</span></a>
+    <a href="#progress" class="nav-link"><i class="fas fa-sticky-note"></i> <span>Requirement Progress</span></a>
+    <!-- Add more sidebar links as needed -->
+  </div>
+
+  <!-- Main content -->
+  <div class="main-content" id="mainContent">
+    <!-- Top navbar -->
+    <div class="top-navbar">
+      <div class="navbar-left">
+        <span id="user_role" style="font-size: 9.5px;">Student</span>
+        <p>Welcome, <span class="user-name">[insert JS_name here] </span> </p>
+      </div>
+      <div class="navbar-right">
+        <input id="searchBttn" type="text" placeholder="Search">
+        <span id="getHelp">Help</span>
+        <span id="logout">Logout</span>
+      </div>
+    </div>
+
+    <!-- Degree Navigator Header -->
+    <div class="dn-header">
+      <h1>Welcome to SOENav / ECENav for RUTGERS UNIVERSITY</h1>
+    </div>
+
+    <!-- Degree Navigator Content Section -->
+    <div class="dn-section">
+      <h2>What is SOENav (DN)?</h2>
+      <p>
+        SOENav (ECEnAV) is a Degree navigator specifically for the undergraduate school of engineering. It is a mush better tool
+        for undergraduate advising and degree-audit. It helps students and advisors work together to manage and plan academic progress.
+      </p>
+    </div>
+
+    <!-- My Details Section -->
+    <div class="dn-section Details" id="details">
+      <h2>My Details</h2>
+      <p class="user-name"><strong>Name:</strong> [insert name here]</p>
+      <p id="user-netid"><strong>Rutgers ID:</strong> [insert rutgers id number here]</p>
+      <p id="user-school"><strong>School Code:</strong> 14 (School of Engineering)</p>
+      <p id="user-grad"><strong>Year Of Graduation:</strong> [insert year here]</p>
+      <p id="user-gradm"><strong>Month Of Graduation:</strong> [insert month here]</p>
+      <p id="user-netid"><strong>NetID:</strong> [insert netid here]</p>
+    </div>
+
+    <!-- My Planned Courses (empty) -->
+    <div class="dn-section plannedcourses" id="plcourses">
+      <h2>My Planned Courses</h2>
+      <p>You have <span id="js-pple">0 </span>courses in your course plan.</p>
+    </div>
+
+    <!--David's CourseList-->
+    <div class="dn-section course-list" id="courseList">
+      <h2>My Course List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Course</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th>Special Codes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spring 2025</td>
+            <td>01:198:205</td>
+            <td>4</td>
+            <td>Current</td>
+            <td>M</td>
+          </tr>
+          <!-- Add more rows and edit later on-->
+        </tbody>
+      </table>
+    </div>
+
+    <!--Farah, your template here. How you want the course requirements for major to appear here. Later on, JS and HTML will edit the DOM later-->
+    <div class="dn-section requirements" id="progress">
+      <h2>My Progress</h2>
+      <p>You have <span id="remaining_courses">x</span> more courses to take to get your degree.</p>
+      <!--Remember that there's alternate courses too-->
+
+    </div>
+
+    <!-- QUESTIONS / Contact Info -->
+    <div class="dn-section dn-contact">
+      <h2>Questions?</h2>
+      <ul>
+        <li>
+          <strong>NEW BRUNSWICK STUDENTS:</strong> Contact New Brunswick Help at 
+          <a href="mailto:nbdn@sas.rutgers.edu">nbdn@sas.rutgers.edu</a>
+        </li>
+        <li>
+          <strong>NEWARK STUDENTS:</strong> Contact Newark Help at 
+          <a href="https://rutgers.force.com/OneStopPortal/s/Newark" target="_blank">
+            https://rutgers.force.com/OneStopPortal/s/Newark
+          </a>
+        </li>
+        <li>
+          <strong>CAMDEN STUDENTS:</strong> Contact Camden Help at 
+          <a href="mailto:camreg@camden.rutgers.edu">camreg@camden.rutgers.edu</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const mainContent = document.getElementById('mainContent');
+      sidebar.classList.toggle('collapsed');
+      mainContent.classList.toggle('expanded');
+    }
+  </script>
+  <script src="home.js"></script>
+</body>
+</html>
