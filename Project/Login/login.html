@@ -81,26 +81,26 @@
                                   constructor(username, password) {
                                     this.username = username;
                                     this.password = password;
-                                }
-
-                                function disableEmptyInputFormSubmission() {
+                                  }
+                            
+                                  disableEmptyInputFormSubmission() {
                                     var form = document.getElementById('fm1');
                                     var usernameField = form.querySelector('input[name="username"]');
                                     var passwordField = form.querySelector('input[name="password"]');
                                     var submitButton = form.querySelector('input[name="submit"]');
-                            
+                                    
                                     submitButton.disabled = true;
-                            
+                                    
                                     if (usernameField && passwordField) {
                                         function toggleSubmitButton() {
                                             var enableSubmission = usernameField.value.trim() && passwordField.value.trim();
                                             submitButton.disabled = !enableSubmission;
                                         }
-                            
+                                        
                                         usernameField.addEventListener('input', toggleSubmitButton);
                                         passwordField.addEventListener('input', toggleSubmitButton);
                                     }
-                            
+                                    
                                     /**
                                      * Handle auto-complete events to the extent possible.
                                      */
@@ -111,52 +111,45 @@
                                             submitButton.disabled = false;
                                         }
                                     }, 100);
-                                }}
-                                const userFieldsLogin = new userFields();
-                                userFieldsLogin.username = usernameField.value;
-                                userFieldsLogin.password=passwordField.value;
-                            
+                                  }
+                                }
+                                
                                 document.addEventListener('DOMContentLoaded', function () {
+                                    const userFieldsLogin = new userFields();
+                                    var usernameField = document.querySelector('#fm1 input[name="username"]');
+                                    var passwordField = document.querySelector('#fm1 input[name="password"]');
+                                    if (usernameField && passwordField) {
+                                        userFieldsLogin.username = usernameField.value;
+                                        userFieldsLogin.password = passwordField.value;
+                                    }
+                                    
                                     userFieldsLogin.disableEmptyInputFormSubmission();
-                            
+                                    
                                     var form = document.getElementById('fm1');
                                     if (form) {
-                                        form.addEventListener('submit', function () {
-                                            var submitButton = form.querySelector(':submit');
+                                        form.addEventListener('submit', function (event) {
+                                            // Prevent the default form submission
+                                            event.preventDefault();
+                                            
+                                            var submitButton = form.querySelector('input[name="submit"]');
                                             if (submitButton) {
-                                                //submitButton.disabled = true;
                                                 submitButton.value = "One moment please...";
-                                                //window.open('SOENav/Project/Home/home.html', '_blank');
-                                                document.getElementById("fm1").addEventListener("click", function() {
-                                                window.location.href = "SOENav/Project/Home/home.html"; // Replace with the correct URL
-                                                    const fs = require('fs');
-
-                                                // get the absolute path of the current working directory
-                                                    let filePath = fs.realpathSync('./');
-
-                                                // print it
-                                                    console.log(filePath);
-
-
-
-                                                    
-                                                });
+                                                
+                                                // Navigate to your desired page
+                                                window.location.href = "SOENav/Project/Home/home.html";
                                             }
                                         });
                                     }
-                            
+                                    
                                     var capsLockWarning = document.getElementById('capslock-on');
                                     if (capsLockWarning) capsLockWarning.style.display = 'none';
-                            
-                                    var usernameField = document.querySelector('#fm1 input[name="username"]');
-                                    var passwordField = document.querySelector('#fm1 input[name="password"]');
-                            
+                                    
                                     if (usernameField) usernameField.focus();
                                     if (usernameField && passwordField) {
                                         usernameField.dispatchEvent(new Event('input'));
                                         passwordField.dispatchEvent(new Event('input'));
                                     }
-                            
+                                    
                                     var passwordInput = document.getElementById('password');
                                     if (passwordInput) {
                                         passwordInput.addEventListener('keypress', function (e) {
