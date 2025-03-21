@@ -26,12 +26,12 @@ app.use(bodyParser.json()); // Parse JSON body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse form data
 
 //global connection if needed
-const connection = sequel.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "",
-});
+//const connection = sequel.createConnection({
+  //host: "localhost",
+  //user: "root",
+  //password: "",
+  //database: "",
+//});
 
 
 // Handle form submission
