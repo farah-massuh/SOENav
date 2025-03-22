@@ -1,6 +1,6 @@
 let user = localStorage.getItem("userData");
-let signForm = document.getElementById("signForm");
-const signBtn = document.getElementById("signBtn");
+let signForm = document.getElementById("signForm");//the form element, should use this to get formData
+const signBtn = document.getElementById("signBtn");//the submit button itself, may not be needed
 
 const courses = [//all engineering courses
     "14:125:201 : INTRO BIOMEDICAL ENG",
@@ -174,6 +174,9 @@ const courses = [//all engineering courses
     "14:650:497 : CO-OP INTERNSHIP MAE",
     "14:650:498 : UNDERGRD RES SENIORS"
   ];
+  /**
+   * populate the dropdown with the courses...You can add extra courses like common humanities and alternate electives
+   */
 function populateDropdown() {
     const dropdownOptions = document.getElementById("dropdown-options");
     dropdownOptions.innerHTML = courses
@@ -203,7 +206,7 @@ function populateDropdown() {
     }
   }
   
-  // Show/hide dropdown on input focus/blur
+  // Show/hide dropdown on input click
   document.getElementById("search-input").addEventListener("click", () => {
     document.getElementById("dropdown-options").classList.toggle("hidden");
   });
@@ -211,7 +214,7 @@ function populateDropdown() {
   // Initialize dropdown
   populateDropdown();
 /**
- * 
+ * auth makes sure the registration is good...
  * @returns authenticate user registration
  */
 function auth(){
@@ -231,6 +234,7 @@ function auth(){
 }
 
 //change to signForm, and listener event to "submit", uncomment the if statement
+//send formData to back-end...
 signBtn.addEventListener("click", async (event)=> {
     //console.log("clicked");debugging
     event.preventDefault();
