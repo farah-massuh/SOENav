@@ -26,22 +26,22 @@ app.use(bodyParser.json()); // Parse JSON body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse form data
 
 //global connection if needed
-//const connection = sequel.createConnection({
-  //host: "localhost",
-  //user: "root",
-  //password: "",
-  //database: "",
-//});
+const connection = sequel.createConnection({
+  host: "bmu76n1mf2sehxodofjl-mysql.services.clever-cloud.com",
+  user: "udaban8ouzufgby5",
+  password: "xH67BYKcnsZq9J0vUVvO",
+  database: "bmu76n1mf2sehxodofjl",
+});
 
 
 // Handle form submission
 app.post("/signup", async (req, res) => {
   let reg = false;
   const remote = sequel.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "DB",
+    host: "bmu76n1mf2sehxodofjl-mysql.services.clever-cloud.com",
+  user: "udaban8ouzufgby5",
+  password: "xH67BYKcnsZq9J0vUVvO",
+  database: "bmu76n1mf2sehxodofjl"
   });
   // Connect to the database
   remote.connect((err) => {
@@ -51,31 +51,33 @@ app.post("/signup", async (req, res) => {
     }
     console.log("Connected to the MySQL database!");
   });
-  const { netid, email, password, nationality } = req.body;
+  const {name, netid, email, password, matric, gradDate, major,coursesTaken } = req.body;
+  console.log("New user:", req.body);//Also remove late...just debugging
 
-  if (!netid || !email || !password)
-    return res.status(400).json({ message: "Required fields missing!" });
+  if (!name || !netid || !email || !password)
+    return res.status(400).json({success: false, message: "Required fields missing!" });
 
   try {
     // Hash the password before storing it
     const saltRounds = 10;
     const hashedPassword = await crypto.hash(password, saltRounds);
     // Put the user into DB
-    const query ="INSERT INTO users (netid, email, password, major, classyear, current_year,) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    const query = `INSERT INTO soenav_students ( name, email, netID, password, matricDate, expectedGradDate, currentSchoolYear, major, coursesTaken
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     remote.query(
       query,
-      [netid, email, hashedPassword, nationality, 2026, "junior", 'D(5)'],//*FIX!!!!
+      [name, email, netid, hashedPassword, matric, gradDate, 'junior', major, coursesTaken],//*FIX!!!!
       (err, result) => {
         if (err) {
           console.error("Error inserting user:", err);
-          return res.status(500).json({ message: "Username/email already registered" });
+          return res.status(500).json({success: false, message: "Username/email already registered" });
         }
-        res.status(200).json({ message: "You have successfully registered" });
+        res.status(200).json({success: true, message: "You have successfully registered" });
         reg = true;
         console.log("The value of reg after change is: ", reg);//debug registered and this is redundant
         
         // Performing a query for debugging remove later
-        remote.query("SELECT * FROM users", (err, results) => {
+        remote.query("SELECT * FROM soenav_students", (err, results) => {
         if (err) {
           console.error("Error executing query:", err);
           return;
@@ -89,7 +91,6 @@ app.post("/signup", async (req, res) => {
     console.error("Error:", error);
     res.status(500).json({ message: "Server error" });
   }
-  console.log("New user:", req.body);//Also remove late...just debugging
 });
 
 app.post("/login", (req, res) => {
@@ -99,10 +100,10 @@ app.post("/login", (req, res) => {
       return res.status(400).json({ message: "Email and password are required!" });
   }
   const remote = sequel.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "SOENav_user_data",
+    host: "bmu76n1mf2sehxodofjl-mysql.services.clever-cloud.com",
+  user: "udaban8ouzufgby5",
+  password: "xH67BYKcnsZq9J0vUVvO",
+  database: "bmu76n1mf2sehxodofjl"
   });
 
   const query = "SELECT * FROM users WHERE email = ? OR netid = ?";
