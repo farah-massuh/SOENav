@@ -51,7 +51,7 @@ app.post("/signup", async (req, res) => {
     }
     console.log("Connected to the MySQL database!");
   });
-  const {name, netid, email, password, matric, gradDate, major,coursesTaken } = req.body;
+  const {name, netid, email, password, matric, gradDate, currentYear, major, coursesTaken } = req.body;
   console.log("New user:", req.body);//Also remove late...just debugging
 
   if (!name || !netid || !email || !password)
@@ -66,7 +66,7 @@ app.post("/signup", async (req, res) => {
 ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     remote.query(
       query,
-      [name, email, netid, hashedPassword, matric, gradDate, 'junior', major, coursesTaken],//*FIX!!!!
+      [name, email, netid, hashedPassword, matric, gradDate, currentYear, major, JSON.stringify(coursesTaken)],//*FIX!!!!
       (err, result) => {
         if (err) {
           console.error("Error inserting user:", err);
@@ -74,7 +74,6 @@ app.post("/signup", async (req, res) => {
         }
         res.status(200).json({success: true, message: "You have successfully registered" });
         reg = true;
-        console.log("The value of reg after change is: ", reg);//debug registered and this is redundant
         
         // Performing a query for debugging remove later
         remote.query("SELECT * FROM soenav_students", (err, results) => {
@@ -82,7 +81,7 @@ app.post("/signup", async (req, res) => {
           console.error("Error executing query:", err);
           return;
         }
-        console.log("Query results:", results);
+        console.log("Query results:", results);//debugging
         });
         remote.end();//End the connection
       }
