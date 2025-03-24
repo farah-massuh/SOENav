@@ -235,25 +235,30 @@ function auth(){
 
 //change to signForm, and listener event to "submit", uncomment the if statement
 //send formData to back-end...
-signBtn.addEventListener("click", async (event)=> {
+signForm.addEventListener("submit", async (event)=> {
     //console.log("clicked");debugging
     event.preventDefault();
     let coursesTakenByUsers = Array.from(document.querySelectorAll('input[name="courses-taken"]:checked')).map(checkbox => checkbox.value);
     console.log(coursesTakenByUsers);
     
-    //auth();
-    /*
+    auth();
+    
     if(auth()){
         const formData = new FormData(event.target);
         const data = Object.fromEntries(formData.entries());
+        data.coursesTaken = coursesTakenByUsers;
 
-        const response = await fetch("http://localhost:5000/signup", {
+        const REG_INFO = JSON.stringify(data);
+        
+        const response = await fetch("http://localhost:3000/signup", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: REG_INFO
         });
 
         const result = await response.json();
-        errMessage.textContent = (result.message);
-    }   */
+        if(result.success)window.location.href = "../Login/login.html";
+        alert(result.message);
+        //errMessage.textContent = (result.message);
+    }   
 });
