@@ -14,15 +14,18 @@
         <ul class="header-list">
             <li class="home"><a href="">Home</a></li>
             <li class="sourcecode"><a href="">Source-Code</a></li>
-            <li class="ode"><a href="">Login</a></li>
+            <li class="ode"><a href="../Login/login.html">Login</a></li>
         </ul>
         <img src="../Pictures/logo/rMath.jpg" alt="logo">
     </div>
     <div class="signup-container">
         <h1>Register your NET-ID</h1>
         <form method="POST" id="signForm">
-            <label for="username">NETID*</label>
-            <input type="text" id="username" name="username" placeholder="NETID" required>
+            <label for="name">Name*</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <label for="netid">NETID*</label>
+            <input type="text" id="username" name="netid" placeholder="NETID" required>
 
             <label for="email">Email*</label>
             <input type="email" id="email" name="email" placeholder="For resetting password">
@@ -32,6 +35,15 @@
 
             <label for="confirm-password">Confirm Password*</label>
             <input type="password" id="confirm-password" name="confirm-password" placeholder='Retype password' required>
+
+            <label for="currentYear">CurrentYear* </label>
+            <select id="crntYr" name="currentYear" required>
+                <option value="">Select </option>
+                <option value="Freshman">Freshman </option>
+                <option value="Sophomore">Sophomore </option>
+                <option value="Junior">Junior </option>
+                <option value="Senior">Senior </option>
+            </select>
 
             <label for="courses-taken">Courses Taken(Sorted Numerically)</label>
             <div class="custom-dropdown">
@@ -44,27 +56,27 @@
             <label for="matric">Matriculation Date*</label>
             <select id="matric" name="matric" required>
                 <option value="">Select </option>
-                <option value="">2021 </option>
-                <option value="">2022 </option>
-                <option value="">2023 </option>
-                <option value="">2024 </option>
-                <option value="">2025 </option>
-                <option value="">2026 </option>
+                <option value="2021">2021 </option>
+                <option value="2022">2022 </option>
+                <option value="2023">2023 </option>
+                <option value="2024">2024 </option>
+                <option value="2025">2025 </option>
+                <option value="2026">2026 </option>
             </select>
 
             <label for="gradDate">Expected graduation year*</label>
             <select id="gradDate" name="gradDate" required>
                 <option value="">Select </option>
-                <option value="">2026 </option>
-                <option value="">2027 </option>
-                <option value="">2028 </option>
+                <option value="2026">2026 </option>
+                <option value="2027">2027 </option>
+                <option value="2028">2028 </option>
             </select>
 
             <label for="major">Current major*</label>
             <select id="major" name="major" required>
                 <option value="">Select </option>
-                <option value="">Electrical Engineering </option>
-                <option value="">Computer Engineering </option>
+                <option value="Electrical Engineering">Electrical Engineering </option>
+                <option value="Computer Engineering">Computer Engineering </option>
             </select>
 
             <div class="terms-container">
@@ -74,7 +86,7 @@
             <span id="errMsg"></span>
             <button type="submit" id="signBtn">Sign Up</button>
         </form>
-        <p>Already have an account? <a href="login.html">Log in</a></p>
+        <p>Already have an account? <a href="../Login/login.html">Log in</a></p>
     </div>
     <script src="register.js"></script>
 </body>
